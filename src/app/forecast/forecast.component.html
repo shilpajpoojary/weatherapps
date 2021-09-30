@@ -1,0 +1,60 @@
+<div style="padding: 20px;">
+    <div class="card text-center mx-auto my-3" *ngFor="let list of forecastData" style="width: 18rem;">
+        <div class="card-body" style="font-family: 'Times New Roman', Times, serif; ">
+            <div class="card-title ">
+                <h3>
+                    <strong> {{ city | uppercase}} </strong>
+                </h3>
+            </div>
+            <div class="card-text">
+                <h4>
+                    <div class="row" style="margin: 20px; ">
+                        <div class="col">
+                            <h6>
+                                <strong> Date and Time : {{list.dt_txt | uppercase}}</strong>
+                            </h6>
+                        </div>
+                    </div>
+                </h4>
+                <h4 *ngFor="let w of list.weather ">
+
+                    {{w.description}}
+                    <h5>
+
+                        <img src="http://openweathermap.org/img/w/{{w.icon}}.png" alt="Site Logo" width="50"
+                            height="50">
+
+                    </h5>
+                </h4>
+                <div class="row" style="margin: 20px; ">
+                        
+                    <div class="col" >
+                        <h6>
+                            <strong>
+                                Temperature :{{list.main.temp -272.15 | number:'0.1'}} <sup>o</sup> C    
+                            </strong>
+                            
+                        </h6>
+                        
+                    </div>
+                </div>
+                <h4>
+                    <div class="row" style="margin: 20px; ">
+                        <div class="col" >
+                            <h6>
+                                Temperature :{{list.main.temp -272.15 | number:'0.1'}}<sup>o</sup> C 
+                                <strong>|</strong> 
+                                Humidity: {{list.main.humidity}}%
+                            </h6>
+                            
+                        </div>
+                        
+                    </div>
+                   
+                </h4>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mx-auto my-3">
+  <div class="row mx-auto my-3" style="width: 550px; border-radius: 40px; ">
+    <div class="col- mx-auto my-3" style="width: 550px; border-radius: 40px; ">
+      <h3 class= "text-center mx-auto my-3">SEARCH FOR WEATHER:</h3>
+      <form [formGroup]="weatherSearchForm" (ngSubmit)="onSubmitWeatherForm(weatherSearchForm.value) ">
+        <div class="form-group">
+          <select class="form-select" formControlName="city">
+            <option value="" selected disabled>Select the city</option>
+            <option *ngFor="let city of cities">
+              <h4>
+                {{ city.name}}
+              </h4>
+            </option>
+          </select>
+        </div>
+        <div class="text-center  ">
+           <br><br><button type ="submit" class="btn btn-success btn-md">
+            Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div>
+  <wa-weather-card [citySelected]="citySelected" [weatherData]="weatherData" >
+  </wa-weather-card>
+</div>
